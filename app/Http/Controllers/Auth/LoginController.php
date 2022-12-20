@@ -52,12 +52,10 @@ class LoginController extends Controller
         if( auth()->attempt(array('cpf' => $input['username'], 'password' => $input['password'])) || auth()->attempt(array('email' => $input['username'], 'password' => $input['password'])) )
 
         {
-            if (auth()->user()->type == 'super-admin') {
+            if (auth()->user()->type == 'gestor') {
                 return redirect()->route('super.admin.dashboard');
-            }else if (auth()->user()->type == 'manager') {
+            }else if (auth()->user()->type == 'administrativo') {
                 return redirect()->route('manager.dashboard');
-            }else{
-                return redirect()->route('dashboard');
             }
         }else{
             return redirect()->route('login')
