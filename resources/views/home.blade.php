@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        You are login as a user role.
+                        Visão usuário administativo.
                 </div>
             </div>
         </div>

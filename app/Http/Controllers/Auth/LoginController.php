@@ -53,9 +53,9 @@ class LoginController extends Controller
 
         {
             if (auth()->user()->type == 'gestor') {
-                return redirect()->route('super.admin.dashboard');
-            }else if (auth()->user()->type == 'administrativo') {
                 return redirect()->route('manager.dashboard');
+            }else if (auth()->user()->type == 'administrativo') {
+                return redirect()->route('dashboard');
             }
         }else{
             return redirect()->route('login')
@@ -64,12 +64,12 @@ class LoginController extends Controller
 
     }
 
-    public function username() {
-        $loginValue = request('username');
-        $this->username = filter_var($loginValue, FILTER_VALIDATE_EMAIL) ? 'email' : 'cpf';
-        request()->merge([$this->username() => $loginValue]);
-        return property_exists($this, 'cpf') ? $this->username : 'email';
-
-    }
+//    public function username() {
+//        $loginValue = request('username');
+//        $this->username = filter_var($loginValue, FILTER_VALIDATE_EMAIL) ? 'email' : 'cpf';
+//        request()->merge([$this->username() => $loginValue]);
+//        return property_exists($this, 'cpf') ? $this->username : 'email';
+//
+//    }
 
 }

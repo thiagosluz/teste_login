@@ -23,14 +23,12 @@ Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Administrativo Routes
-
 Route::middleware(['auth', 'user-access:administrativo'])->group(function () {
 
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 });
 
 // Gestor Routes
-
 Route::middleware(['auth', 'user-access:gestor'])->group(function () {
 
     Route::get('/manager/dashboard', [HomeController::class, 'managerDashboard'])->name('manager.dashboard');
