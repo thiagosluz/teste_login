@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CurriloController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,9 @@ Auth::routes();
 Route::middleware(['auth', 'user-access:administrativo'])->group(function () {
 
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    //rota resource para o controller de currilo
+    Route::resource('curriculo', CurriloController::class);
+
 });
 
 // Gestor Routes

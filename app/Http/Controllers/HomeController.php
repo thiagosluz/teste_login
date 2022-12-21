@@ -35,4 +35,5 @@ class HomeController extends Controller
     {
         return view('super_admin_dashboard');
     }
+
 }
